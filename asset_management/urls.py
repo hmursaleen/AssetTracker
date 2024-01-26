@@ -2,18 +2,23 @@
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .api import CompanyViewSet, EmployeeViewSet, DeviceViewSet
+from .api import CompanyViewSet, EmployeeViewSet, AssetCategoryViewSet, \
+    ProjectViewSet, DeviceViewSet, AssetTransactionViewSet
 
 router = DefaultRouter()
 router.register(r'companies', CompanyViewSet)
 router.register(r'employees', EmployeeViewSet)
+router.register(r'asset-categories', AssetCategoryViewSet)
+router.register(r'projects', ProjectViewSet)
 router.register(r'devices', DeviceViewSet)
+router.register(r'asset-transactions', AssetTransactionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
 ]
 
-# Add the following for documentation
+
+
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
