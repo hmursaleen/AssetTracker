@@ -2,6 +2,13 @@
 
 from rest_framework import serializers
 from .models import Company, Employee, AssetCategory, Project, Device, AssetTransaction
+from django.contrib.auth.models import User
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
 
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,10 +30,13 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
 
+
+
 class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
         fields = '__all__'
+
 
 class AssetTransactionSerializer(serializers.ModelSerializer):
     class Meta:
