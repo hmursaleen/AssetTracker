@@ -11,12 +11,15 @@ router.register(r'employees', EmployeeViewSet)
 router.register(r'asset-categories', AssetCategoryViewSet)
 router.register(r'projects', ProjectViewSet)
 router.register(r'devices', DeviceViewSet)
+# Registering the DeviceViewSet allows us to easily expose CRUD operations for devices.
 router.register(r'asset-transactions', AssetTransactionViewSet)
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
+
 
 
 
